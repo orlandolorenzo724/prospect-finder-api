@@ -1,0 +1,11 @@
+package com.kreyzon.prospectfinder.api.business.request;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class LoginRequest {
+    private String username;
+    private String password;
+}
