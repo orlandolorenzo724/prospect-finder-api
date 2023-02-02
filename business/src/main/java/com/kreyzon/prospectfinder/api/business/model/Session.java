@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "session")
 @Getter
@@ -37,5 +39,9 @@ public class Session {
 
     private String status;
 
-    private String internalUserId;
+    private String externalUserId;
+
+    private String externalSessionId;
+
+    private LocalDateTime creationDate;
 }

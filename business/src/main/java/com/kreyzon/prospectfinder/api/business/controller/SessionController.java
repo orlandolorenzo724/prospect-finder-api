@@ -6,16 +6,18 @@ import com.kreyzon.prospectfinder.api.business.service.LoginService;
 import com.kreyzon.prospectfinder.api.business.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/prospectfinder/api/v1/business/session")
 public class SessionController {
     @Autowired
     private SessionService sessionService;
+
+    @GetMapping("/{externalSessionId}")
+    public ResponseEntity<Session> info(@PathVariable("externalSessionId") String externalSessionId) {
+        return ResponseEntity.ok(sessionService.getSessionInfo(externalSessionId));
+    }
 
     @PostMapping
     public ResponseEntity<Session> start(@RequestBody SessionRequest sessionRequest) {

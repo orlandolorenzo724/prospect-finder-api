@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 public class SessionRequest {
+    private String userId;
     private String name;
     private String scrape_info;
     private String scrape_type;
